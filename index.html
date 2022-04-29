@@ -7,6 +7,51 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Sass</h1>
+    <h2>Combinateurs</h2>
+    <code> 
+        Combinateur parent  <br>
+        .parent {  <br>
+        background-color: #15DEA5;  <br>
+        }  <br>
+        Combinateur descendant  <br>
+        .parent .descendant {  <br>
+        color: #fff;  <br>
+        }  <br>
+        Combinateur parent > enfant  <br>
+        .parent > .child {  <br>
+        color: #D6FFF5;  <br>
+        }  <br>
+        Combinateur adjacent  <br>
+        .parent + .adjacent {  <br>
+        color: #001534;  <br>
+        } <br>
+    </code>
+
+    <h2>Les mixins</h2>
+    <code>
+        @mixin mixin-name { <br>
+              css-property: value; <br>
+            } <br>
+
+        Exemple : <br>
+        @mixin heading-shadow{ <br>
+              text-shadow: .55rem .55rem #15DEA5; <br>
+            } <br>
+        Pour customiser une des valeurs par défaut de la mixin : <br>
+        @mixin heading-shadow($colour){ <br>
+              text-shadow: .55rem .55rem $colour; <br>
+            } <br>
+        Donnera : <br>
+        .heading{ <br>
+              &__header { <br>
+              @include heading-shadow(#fff); <br>
+              } <br>
+            } <br>
+        Mais pour ne pas avoir à modifier la couleur à chaque fois : <br>
+        @mixin heading-shadow($colour: $colour-primary){ <br>
+              text-shadow: .55rem .55rem $colour; <br>
+            } <br>
+    </code>
 </body>
 </html>
