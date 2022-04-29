@@ -162,5 +162,42 @@
   } <br>
 } <br>
     </code>
+
+    <h2>Le responsive avec Sass</h2>
+    <p>Créer une map avec différents breakpoints :</p>
+    <code>
+        $breakpoints: ( <br>
+  mobile: 599px <br>
+... <br>
+); <br>
+    </code>
+    <p>Puis prenant mobile pour l'exemple, on appelle la liste et son element dans une mixin, pour ensuite appeler la mixin :</p>
+    <code>
+        @mixin mobile-only { <br>
+              @media screen and (max-width: map-get($breakpoints, mobile)){ <br>
+                  grid-template-columns: 1fr; <br>
+              } <br>
+            } <br>
+            .proj-grid { <br>
+              display: grid; <br>
+              grid-template-columns: repeat(3, 1fr); <br>
+              @include mobile-only; <br>
+            } <br>
+    </code>
+    <p>On utilise @content en tant que placeholder pour des media queries spécifiques</p>
+    <code>
+        @mixin mobile-only { <br>
+              @media screen and (max-width: map-get($breakpoints, mobile)){ <br>
+                  @content; <br>
+              } <br>
+            } <br>
+            .proj-grid { <br>
+              display: grid; <br>
+              grid-template-columns: repeat(3, 1fr); <br>
+              @include mobile-only{ <br>
+                  grid-template-columns: 1fr; <br>
+              } <br>
+            } <br>
+    </code>
 </body>
 </html>
