@@ -144,5 +144,23 @@
     <p>Il est possible de n'appeler qu'une seule valeur ainsi : (ici 4=4, pas comme index en JS)</p>
     <code>        font-size: nth($font-size, 4);
     </code>
+
+    <h2>Maps</h2>
+    <code>$map: ( <br>
+          key-01: value-01, <br>
+          key-02: value-02, <br>
+          key-03: value-03 <br>
+        ); <br>
+    </code>
+
+    <p>Exemple :</p>
+    <code>
+        $font-size: (logo:7rem, heading:5rem, project-heading:4rem, label:2rem); <br>
+.form{ <br>
+        font-size: map-get($font-size, label); <br>
+      } <br>
+  } <br>
+} <br>
+    </code>
 </body>
 </html>
