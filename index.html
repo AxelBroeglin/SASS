@@ -33,24 +33,75 @@
         @mixin mixin-name { <br>
               css-property: value; <br>
             } <br>
-
-        Exemple : <br>
+    </code>
+        <p>Exemple : <br></p>
+        <code>
         @mixin heading-shadow{ <br>
               text-shadow: .55rem .55rem #15DEA5; <br>
             } <br>
-        Pour customiser une des valeurs par défaut de la mixin : <br>
+        </code>
+        
+        <p>Pour customiser une des valeurs par défaut de la mixin : <br></p>
+        <code>
         @mixin heading-shadow($colour){ <br>
               text-shadow: .55rem .55rem $colour; <br>
             } <br>
-        Donnera : <br>
+        </code>
+        <p>Donnera : <br></p>
+        <code>
         .heading{ <br>
               &__header { <br>
               @include heading-shadow(#fff); <br>
               } <br>
             } <br>
-        Mais pour ne pas avoir à modifier la couleur à chaque fois : <br>
+        </code>
+
+        <p>Mais pour ne pas avoir à modifier la couleur à chaque fois :</p> <br>
+        <code>
         @mixin heading-shadow($colour: $colour-primary){ <br>
               text-shadow: .55rem .55rem $colour; <br>
+            } <br>
+    </code>
+
+    <h2>Les extensions</h2>
+    <p>
+        On déclare les extensions comme un simple selecteur :
+    </p>
+    <code>
+        .typography { <br>
+              color: $colour-primary; <br>
+              font-size: 2rem; <br>
+              font-weight: 100; <br>
+              line-height: 1.7; <br>
+            } <br>
+    </code>
+    <p>
+        Pour ensuite étendre des éléments à l'extension :
+    </p>
+    <code>
+        h1 { <br>
+        @extend .typography; <br>
+        } <br>
+    </code>
+    <p>La bonne pratique est de transformer .typography en placeholder afin d'éviter les classes non utilisées</p>
+    <code>
+        %typography { <br>
+              color: $colour-primary; <br>
+              font-size: 2rem; <br>
+              font-weight: 100; <br>
+              line-height: 1.7; <br>
+            } <br>
+            h1 { <br>
+            @extend %typography; <br>
+            } <br>
+            textarea { <br>
+              @extend %typography; <br>
+            } <br>
+            button { <br>
+              @extend %typography; <br>
+            } <br>
+            input { <br>
+              @extend %typography; <br>
             } <br>
     </code>
 </body>
